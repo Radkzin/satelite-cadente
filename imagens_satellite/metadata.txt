@@ -1,0 +1,16 @@
+[general]
+name=Satelite Cadente
+description=Sentinel-2, Landsat, NASA HLS/ECOSTRESS, CBERS-4A e indices de drone com classificacao e metadados.
+version=3.0.0
+about=Complemento PyQGIS para aquisicao e analise de Sentinel-2, Landsat, NASA HLS v2 e ECOSTRESS, CBERS-4A e ortomosaicos de drone. Gera NDVI, SAVI, EVI2, NDWI, NDBI, RGB e LST conforme as bandas e a calibracao disponiveis, com recorte, classificacao visual, rotulos, metadados e relatorios. HLS tem 30 m e melhora comparabilidade temporal, nao nitidez espacial; ECOSTRESS produz LST de 70 m, nao temperatura do ar, e o download requer token Earthdata configurado no QGIS. CBERS TOA e experimental. Classes visuais nao comprovam uso do solo. Autoria: Raphael S. / Radkzin. Codigo GPL-3.0: https://github.com/Radkzin/satelite-cadente.
+qgisMinimumVersion=3.28
+qgisMaximumVersion=4.99
+supportsQt6=True
+author=Raphael S. / Radkzin
+homepage=https://github.com/Radkzin
+repository=https://github.com/Radkzin/satelite-cadente
+tracker=https://github.com/Radkzin/satelite-cadente/issues
+license=GPL-3.0
+category=Processing
+hasProcessingProvider=yes
+

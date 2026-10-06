@@ -1,0 +1,60 @@
+name: Empacotar complemento QGIS
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Conferir versao e montar ZIP instalavel
+        id: package
+        run: |
+          python - <<'PY'
+          import configparser
+          import os
+          import re
+          import zipfile
+          from pathlib import Path
+
+          plugin = Path("imagens_satellite")
+          metadata = configparser.ConfigParser(interpolation=None)
+          if not metadata.read(plugin / "metadata.txt", encoding="utf-8"):
+              raise SystemExit("metadata.txt ausente ou invalido")
+          version = metadata["general"]["version"]
+          tag = os.environ["GITHUB_REF_NAME"]
+          if not re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+", version) or tag != f"v{version}":
+              raise SystemExit(f"Tag {tag!r} deve corresponder a v{version}")
+          if not plugin.is_dir():
+              raise SystemExit("Pasta imagens_satellite ausente")
+
+          output = Path("dist") / f"Satelite_Cadente_{version}.zip"
+          output.parent.mkdir(parents=True, exist_ok=True)
+          with zipfile.ZipFile(output, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+              for path in sorted(plugin.rglob("*")):
+                  if (not path.is_file() or "__pycache__" in path.parts
+                          or path.suffix in {".pyc", ".pyo"} or path.name == "icon.svg"):
+                      continue
+                  archive.write(path, Path("imagens_satellite") / path.relative_to(plugin))
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as result:
+              result.write(f"version={version}\n")
+          print(f"ZIP criado: {output}")
+          PY
+
+      - name: Publicar ZIP no GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh release create "$GITHUB_REF_NAME"
+          "dist/Satelite_Cadente_${{ steps.package.outputs.version }}.zip"
+          --verify-tag --generate-notes
+          --title "Satelite Cadente ${{ steps.package.outputs.version }}"
+
