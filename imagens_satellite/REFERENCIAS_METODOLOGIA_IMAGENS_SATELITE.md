@@ -24,13 +24,6 @@ Datas diferentes e mosaicos multitemporais nao isolam ganhos de resolucao.
 
 ## Acervo Processamento aplicado na versao 2.3.0
 
-Revisao de 01/10/2026: `ANALISE_METODOLOGIA_PROCESSAMENTO.md` registra a triagem dos 17 PDFs, paginas consultadas, duplicatas e limites de aplicacao.
-
-- `Aplicacaoindices.pdf`, p. 2: comparacao de epoca seca e umida; p. 4: equacao SAVI e fator L; p. 6: uso de L=0,5. Aplicacoes: busca por meses e SAVI com L configuravel (0 a 1, padrao 0,5).
-- `dorlivete,+e47611122583.pdf`, p. 5: fator de ajuste relacionado a cobertura e analise multitemporal.
-- `MET-479-Waters-et-al-SEBAL.pdf`, p. 19: SAVI=(1+L)*(NIR-Red)/(NIR+Red+L), com equivalencia ao NDVI quando L=0. O complemento nao executa SEBAL completo.
-- `Guide_to_GIS_and_Image_Processing_Volume_2.pdf`, p. 132: compatibilidade das grades para operacoes entre imagens. A otimizacao de reutilizar bandas ja alinhadas e uma decisao de engenharia, nao um benchmark atribuido ao manual.
-
 O valor efetivo de L fica no GeoTIFF; meses e ano ficam no manifesto. As descricoes anteriores com L=0,5 representam o padrao, nao um valor obrigatorio. Limiares de NDVI nao devem ser transferidos automaticamente ao SAVI.
 
 ## Produtos implementados
