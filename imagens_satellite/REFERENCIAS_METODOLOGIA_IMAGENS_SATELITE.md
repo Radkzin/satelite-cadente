@@ -22,7 +22,7 @@ valores. Nao testa ST_QA, distancia a nuvens ou QA_RADSAT. A fusao continua
 estimada, com validacao na grade agregada nativa e nao na grade fina recortada.
 Datas diferentes e mosaicos multitemporais nao isolam ganhos de resolucao.
 
-## Acervo Processamento aplicado na versao 2.3.0
+
 
 O valor efetivo de L fica no GeoTIFF; meses e ano ficam no manifesto. As descricoes anteriores com L=0,5 representam o padrao, nao um valor obrigatorio. Limiares de NDVI nao devem ser transferidos automaticamente ao SAVI.
 
