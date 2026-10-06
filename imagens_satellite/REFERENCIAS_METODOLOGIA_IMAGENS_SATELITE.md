@@ -59,14 +59,13 @@ Holdout espacial, minimo de 40 celulas, R2 minimo 0,2, recusa de relacao nao inv
 
 ## Acervo local consultado
 
-- `Relatorio_Classificacao_Camadas_Indices_Riacho_do_Mel.pdf`, p. 3: NDVI com Sentinel-2 L2A B08/B04 e manutenção de SCL 4/5/6; p. 7: uso de reflectância de superfície e referência a Rouse/ESA.
-- `Relatorio_Academico_Riacho_do_Mel_Topicos_Especiais.pdf`, p. 9: Esri RGB é contextual e não possui NIR para NDVI; p. 15: referência a Rouse e limites de interpretação.
-- `Viana_2011_Sensoriamento remoto termal aplicado à caracterização de feições cársticas na região de Iraquara-BA.pdf`, p. 1: contexto de aplicação de sensoriamento termal na região. A conversão LST implementada vem da documentação USGS acima.
-- `97499.pdf`: Rambo, E. M. et al. **Processamento e classificação de imagens Landsat-8 para uso e ocupação do município de Tupãssi-PR utilizando o Google Earth Engine**, p. 1–3. O estudo usa múltiplas datas, máscara de nuvens/sombras e mediana antes da classificação. O complemento adota QA por cena, mas usa mosaico de prioridade para preencher SLC-off, sem mediana; são operações relacionadas, porém não equivalentes.
-- `CONEAGRI_ModeloDeProcessamentoLandsat8_2023_v2.pdf`: Silva, T. A.; Amorim, F. R. **Desenvolvimento de modelo de processamento de imagens Landsat 8 no software QGIS**, p. 1 e 6–7. Referência para organizar o fluxo QGIS de mesclagem/mosaico, reprojeção e recorte; não é uma solução específica para SLC-off.
-- `composiciones_landsat_en-arcgis.pdf`: Franco, R. **Composiciones Landsat en ARCGIS**, p. 10 (bandas e resolução), p. 17 (combinações RGB) e p. 28 (linhas incompletas do Landsat 7 após maio de 2003). O guia indica RGB natural 3-2-1 para Landsat 7.
-- `LDCM-L8.R1.pdf`: **Productos LDCM - Landsat 8**, p. 26–28, descreve historicamente a banda de qualidade BQA de Landsat 8 e sua codificação binária. É material anterior ao Collection 2; por isso não é usado para decodificar os bits do `QA_PIXEL` atual nem para substituir escalas/offsets de Collection 2.
-- `nathalia_costa,+3+Processamento+Digital+de+imagens+multitemporais.pdf`: Shimabukuro, Y. E.; Almeida-Filho, R. **Processamento Digital de Imagens Multitemporais Landsat-5 TM e JERS-1 SAR Aplicado ao Mapeamento e Monitoramento de Áreas de Alteração Antrópica na Amazônia**, p. 5–6. A retificação radiométrica e o corregistro entre datas são necessários em estudos comparativos; o artigo não descreve gap filling SLC-off.
+
+
+- Rambo, E. M. et al. **Processamento e classificação de imagens Landsat-8 para uso e ocupação do município de Tupãssi-PR utilizando o Google Earth Engine**, p. 1–3. O estudo usa múltiplas datas, máscara de nuvens/sombras e mediana antes da classificação. O complemento adota QA por cena, mas usa mosaico de prioridade para preencher SLC-off, sem mediana; são operações relacionadas, porém não equivalentes.
+- Silva, T. A.; Amorim, F. R. **Desenvolvimento de modelo de processamento de imagens Landsat 8 no software QGIS**, p. 1 e 6–7. Referência para organizar o fluxo QGIS de mesclagem/mosaico, reprojeção e recorte; não é uma solução específica para SLC-off.
+- Franco, R. **Composiciones Landsat en ARCGIS**, p. 10 (bandas e resolução), p. 17 (combinações RGB) e p. 28 (linhas incompletas do Landsat 7 após maio de 2003). O guia indica RGB natural 3-2-1 para Landsat 7.
+- **Productos LDCM - Landsat 8**, p. 26–28, descreve historicamente a banda de qualidade BQA de Landsat 8 e sua codificação binária. É material anterior ao Collection 2; por isso não é usado para decodificar os bits do `QA_PIXEL` atual nem para substituir escalas/offsets de Collection 2.
+-  Shimabukuro, Y. E.; Almeida-Filho, R. **Processamento Digital de Imagens Multitemporais Landsat-5 TM e JERS-1 SAR Aplicado ao Mapeamento e Monitoramento de Áreas de Alteração Antrópica na Amazônia**, p. 5–6. A retificação radiométrica e o corregistro entre datas são necessários em estudos comparativos; o artigo não descreve gap filling SLC-off.
 
 ## Limites de interpretação
 
